@@ -10,7 +10,6 @@ class Graph:
 
 			self.graph = [[0, [], 0]]
 
-	
 	def GetGraph(self):
 
 		return self.graph
@@ -100,6 +99,17 @@ class Graph:
 		self.graph[nindex][1].append(child_id)
 
 		self.graph[cindex][1].append(node_id)
+
+
+	def SetNodeColor(self, node_id, color):
+
+		for it in range(0, len(self.graph)):
+
+			if self.graph[it][0] == node_id:
+
+				self.graph[it][2] = color;
+
+				break		
 
 	def ZeroForcingSet(self):
 		ischanged = True
