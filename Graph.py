@@ -14,6 +14,7 @@ class Graph:
 
 		return self.graph
 
+
 	def GetAllNodes(self):
 
 		nodes = []
@@ -23,6 +24,7 @@ class Graph:
 			nodes.append(node[0])
 
 		return nodes
+		
 
 	def GetNodeChildren(self, node_id):
 
@@ -77,6 +79,7 @@ class Graph:
 			return "Error: Node not in Graph."
 
 		self.graph.pop(index)
+
 
 	def AddChild(self, node_id, child_id):
 

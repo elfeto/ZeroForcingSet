@@ -22,7 +22,7 @@ def IsZeroForcingSet(graph):
 
 			graph.SetNodeColor(children[0], 1)
 
-			if len(colored_nodes)+1 == len(graph.GetGraph()):
+			if len(graph.GetColoredNodes()) == len(graph.GetGraph()):
 
 				return 1
 

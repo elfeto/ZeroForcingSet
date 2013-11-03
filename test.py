@@ -1,4 +1,4 @@
-from graph import Graph
+from Graph import Graph
 from ZeroForcingSet import *
 
 g = Graph() # create a new graph object
