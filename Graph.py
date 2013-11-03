@@ -10,10 +10,10 @@ class Graph:
 
 			self.graph = [[0, [], 0]]
 
-	
 	def GetGraph(self):
 
 		return self.graph
+
 
 	def GetAllNodes(self):
 
@@ -24,6 +24,7 @@ class Graph:
 			nodes.append(node[0])
 
 		return nodes
+		
 
 	def GetNodeChildren(self, node_id):
 
@@ -79,6 +80,7 @@ class Graph:
 
 		self.graph.pop(index)
 
+
 	def AddChild(self, node_id, child_id):
 
 		nindex = cindex = -1
@@ -100,6 +102,44 @@ class Graph:
 		self.graph[nindex][1].append(child_id)
 
 		self.graph[cindex][1].append(node_id)
+
+
+	def SetNodeColor(self, node_id, color):
+
+		for it in range(0, len(self.graph)):
+
+			if self.graph[it][0] == node_id:
+
+				self.graph[it][2] = color;
+
+				break	
+
+	def IsColored(self, node_id):
+
+		for it in range(0, len(self.graph)):
+
+			if self.graph[it][0] == node_id:
+
+				if self.graph[it][2] == 1:
+
+					return 1
+
+				else:
+
+					return 0
+
+	def GetColoredNodes(self):
+
+		colored_nodes = []
+
+		for it in range(0, len(self.graph)):
+
+			if self.graph[it][2] == 1:
+
+				colored_nodes.append(self.graph[it][0])
+
+		return colored_nodes	
+
 
 	def ZeroForcingSet(self):
 		ischanged = True
