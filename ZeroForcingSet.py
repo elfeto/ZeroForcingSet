@@ -2,7 +2,7 @@ def IsZeroForcingSet(graph):
 	
 	ischanged = True
 		
-	while ischanged == True:
+	while ischanged:
 			
 		ischanged = False
 		
@@ -30,12 +30,10 @@ def IsZeroForcingSet(graph):
 						
 				ischanged = True
 		
-	status = True
-		
 	for node in graph.GetAllNodes():
 			
 		if not graph.IsColored(node):
 				
-			status = False
+			return False
 		
-	return status
+	return True
