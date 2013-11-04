@@ -1,0 +1,32 @@
+	def ZeroForcingSet(self):
+		ischanged = True
+		while ischanged == True:
+			ischanged = False
+			for it in range(0, len(self.graph)):
+				if self.graph[it][2] == 1:
+					count = 0
+					index = 0
+					for ite in range(0, len(self.graph[it][1])):
+						if self.graph[ite][2] == 0:
+							count = count + 1
+							index = ite
+					if count == 1:
+						self.graph[index][2] = 1
+						ischanged = True
+					elif ((count == 0) and (self.graph[it][2] == 0)):
+						self.graph[ite][2] = 1
+						ischanged = True
+				elif self.graph[it][2] == 0:
+					count = 0
+					index = 0
+					for ite in range(0, len(self.graph[it][1])):
+						if self.graph[ite][2] == 0:
+							count = count + 1
+					if ((count == 0) and (self.graph[it][2] == 0)):
+						self.graph[it][2] = 1
+						ischanged = True
+		status = True
+		for it in range(0, len(self.graph)):
+			if self.graph[it][2] == 0:
+				status = False
+		return status

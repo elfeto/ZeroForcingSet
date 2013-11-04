@@ -25,7 +25,7 @@ g.AddChild(2, 4)
 
 g.SetNodeColor(0, 1)# Coloring node 0
 
-g.SetNodeColor(1, 1)# Coloring node 0
+g.SetNodeColor(1, 1)# Coloring node 1
 
 print g.GetGraph()# Graph Before ZFS
 
