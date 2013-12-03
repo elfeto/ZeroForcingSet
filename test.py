@@ -1,6 +1,7 @@
 from Graph import Graph
 from ZeroForcingSet import *
 
+
 g = Graph() # create a new graph object
 
 g.AddNode() # add node
@@ -22,6 +23,8 @@ g.AddChild(3, 2)
 g.AddChild(3, 4)
 
 g.AddChild(2, 4)
+
+ZeroForcingLattice(g, ZeroForcingNumber(g))
 
 g.SetNodeColor(0, 1)# Coloring node 0
 

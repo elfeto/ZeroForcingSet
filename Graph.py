@@ -24,7 +24,10 @@ class Graph:
 			nodes.append(node[0])
 
 		return nodes
-		
+
+	def GetGraphSize(self):
+
+		return len(self.graph)
 
 	def GetNodeChildren(self, node_id):
 
