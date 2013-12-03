@@ -24,14 +24,7 @@ g.AddChild(3, 4)
 
 g.AddChild(2, 4)
 
-ZeroForcingLattice(g, ZeroForcingNumber(g))
+comb = ZeroForcingLattice(g, ZeroForcingNumber(g))
 
-g.SetNodeColor(0, 1)# Coloring node 0
-
-g.SetNodeColor(1, 1)# Coloring node 1
-
-print g.GetGraph()# Graph Before ZFS
-
-print IsZeroForcingSet(g)
-
-print g.GetGraph()# Graph After ZFS
+for a in comb:
+	CreateZeroForcingLattice(g, a)

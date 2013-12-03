@@ -1,4 +1,5 @@
 import itertools
+from Graph import Graph
 
 def IsZeroForcingSet(graph):
 	
@@ -97,3 +98,98 @@ def ZeroForcingLattice(graph, zero_forcing_number):
 	return combinations
 
 
+def CreateZeroForcingLattice(graph, lattice_nodes):
+
+	for l in graph.GetAllNodes():
+
+		graph.SetNodeColor(l, 0)
+
+	Parents = None
+
+	Sons = list()
+
+	List = list()
+
+	Sons2 = list()
+
+	Final = list()
+
+	Knode = None
+
+	childrens = list()
+
+	for combination in lattice_nodes:
+
+		graph.SetNodeColor(combination, 1)
+
+	Parents = lattice_nodes
+
+	color = graph.GetColoredNodes()
+
+	for cnode in color:
+
+		childrens.append(graph.GetNodeChildren(cnode))
+
+	for num in Parents:
+		count = 0
+		for child in childrens:
+
+			if child in graph.GetNodeChildren(num) and not graph.IsColored(child):
+								
+				count = count + 1
+
+		if count == 1:
+
+			Sons.append(child)
+
+	for i in Sons:
+		graph.SetNodeColor(i, 1)
+
+	List.append(Parents)
+	List.append(Sons)
+	Final.append(List)
+
+	ischanged = True
+
+	while ischanged:
+			
+		ischanged = False
+		
+		colored_nodes = graph.GetColoredNodes()
+		
+		next_colored_node = list()
+		
+		Sons1 = list()	
+
+		for cnode in colored_nodes:
+		
+			List1 = list()
+			count = 0
+					
+			next_cnode = None
+
+			children = graph.GetNodeChildren(cnode)
+					
+			for child in children:
+						
+				if not graph.IsColored(child):
+							
+						count = count + 1
+					
+						next_cnode = child
+
+						Parents = cnode
+
+			if count == 1:
+
+				List1.append([Parents])
+				List1.append([next_cnode])
+				Sons1.append(next_cnode)
+				Final.append(List1)
+										
+				ischanged = True
+
+		for i in Sons1:
+			graph.SetNodeColor(i, 1)		
+
+	return Final

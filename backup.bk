@@ -30,3 +30,37 @@
 			if self.graph[it][2] == 0:
 				status = False
 		return status
+
+
+
+
+############################## Create Lattice #######################################
+
+
+color_stand_by = list()
+
+	for combination in lattice_nodes:
+
+		for node in combination:
+
+			graph.SetNodeColor(node, 1)
+
+		for n in combination:
+
+			count = 0
+
+			cnode = -1
+
+			for child in graph.GetNodeChildren(n):
+
+				if not graph.IsColored(child):
+					
+					count = count + 1
+
+					cnode = child
+			
+			if count == 1:
+
+				color_stand_by.append(cnode)
+
+

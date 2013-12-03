@@ -14,7 +14,6 @@ class Graph:
 
 		return self.graph
 
-
 	def GetAllNodes(self):
 
 		nodes = []
@@ -66,6 +65,17 @@ class Graph:
 
 		self.graph.append(entry)
 
+	def AddNodeWithId(self, node_id):
+
+		entry = []
+
+		entry.append(node_id)
+
+		entry.append([])
+
+		entry.append(0)
+
+		self.graph.append(entry)
 
 	def RemoveNode(self, node_id):
 
@@ -142,5 +152,8 @@ class Graph:
 				colored_nodes.append(self.graph[it][0])
 
 		return colored_nodes	
+
+
+					
 
 
