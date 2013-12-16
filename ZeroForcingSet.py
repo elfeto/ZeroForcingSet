@@ -193,17 +193,3 @@ def CreateZeroForcingLattice(graph, lattice_nodes):
 			graph.SetNodeColor(i, 1)		
 
 	return Final
-
-def create_digraph(x):
-	tup = x.pop(0)
-	parent = tup[0]
-	print parent
-	connect = ""
-	for tuple in x:
-		for conn in tuple[1]:
-			if tuple[0][0] in parent:
-				connect = connect + '"'+ str(parent)[1:-1] + '" -> "' + str(conn) + '";\n'
-			else :
-				connect = connect + '"'+ str(tuple[0])[1:-1] + '" -> "' + str(conn) + '";\n'
-	dg = 'digraph G {\n' + connect + '}'
-	return dg
